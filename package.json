@@ -1,6 +1,6 @@
 {
   "name": "mifux",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mifux Library",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.16.0"
-  },  
+  },
   "dependencies": {},
   "files": [
     "lib"
