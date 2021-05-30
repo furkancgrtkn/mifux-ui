@@ -1,5 +1,0 @@
----
-"mifux": minor
----
-
-Styled Components
