@@ -1,5 +1,11 @@
 # mifux
 
+## 1.1.0
+
+### Minor Changes
+
+- 54c3bea: Styled Components
+
 ## 1.0.4
 
 ### Patch Changes
