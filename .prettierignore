@@ -1,0 +1,6 @@
+**/*.js
+node_modules
+.changeset
+.github
+__mocks__
+.gitignore

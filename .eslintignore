@@ -1,0 +1,7 @@
+**/*.js
+**/*.stories.tsx
+node_modules
+.changeset
+.github
+__mocks__
+.gitignore

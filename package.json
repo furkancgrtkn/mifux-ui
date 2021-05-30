@@ -20,9 +20,19 @@
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.8",
     "@types/styled-components": "^5.1.9",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
     "babel-loader": "^8.2.2",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.3",
+    "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.50.4",
@@ -47,6 +57,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "rollup -c",
-    "release": "yarn build && changeset publish"
+    "release": "yarn build && changeset publish",
+    "lint": "eslint --fix \"./**/*.{ts,tsx,js,jsx}\"",
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx}\" --config ./.prettierrc.json"
   }
 }
