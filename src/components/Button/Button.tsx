@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import styled from "styled-components";
 export interface ButtonProps {
   children: React.ReactNode;
   primary?: boolean;
@@ -8,6 +8,11 @@ export interface ButtonProps {
   color?: string;
 }
 
+const ButtonStyled = styled.button<ButtonProps>`
+  color: ${(props) => props.color};
+  background-color: ${(props) => props.backgroundColor};
+`;
+
 export const Button = ({
   children,
   primary = false,
@@ -15,19 +20,15 @@ export const Button = ({
   backgroundColor = "#D1D5DB",
   color = "#1F2937",
 }: ButtonProps): JSX.Element => {
-  const buttonStyles = {
-    fontWeight: 700,
-    padding: "10px 20px",
-    border: 0,
-    cursor: "pointer",
-    display: "inline-block",
-    lineHeight: 1,
-    backgroundColor: primary ? "#5f80c9" : backgroundColor,
-    color: primary ? "#F3F4F6" : color,
-  };
   return (
-    <button type="button" onClick={onClick} style={buttonStyles}>
+    <ButtonStyled
+      type="button"
+      color={color}
+      backgroundColor={backgroundColor}
+      onClick={onClick}
+      primary={primary}
+    >
       {children}
-    </button>
+    </ButtonStyled>
   );
 };
