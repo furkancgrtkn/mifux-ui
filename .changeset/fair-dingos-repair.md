@@ -1,5 +1,0 @@
----
-'mifux': major
----
-
-Eslint Prettier

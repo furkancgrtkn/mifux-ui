@@ -1,5 +1,11 @@
 # mifux
 
+## 2.0.0
+
+### Major Changes
+
+- ea1b321: Eslint Prettier
+
 ## 1.1.0
 
 ### Minor Changes
