@@ -1,5 +1,11 @@
 # mifux
 
+## 1.0.4
+
+### Patch Changes
+
+- 4af24f2: try
+
 ## 1.0.3
 
 ### Patch Changes
