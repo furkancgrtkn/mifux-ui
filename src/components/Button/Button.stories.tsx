@@ -37,6 +37,5 @@ CustomFontColor.args = {
 
 export const OnClick = Template.bind({})
 OnClick.args = {
-	// eslint-disable-next-line no-alert
-	onClick: () => alert('Clicked the button!'),
+	onClick: () => console.log('s'),
 }
