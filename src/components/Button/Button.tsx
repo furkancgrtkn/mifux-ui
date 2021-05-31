@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import { ButtonStyled } from './styles'
 
 export interface ButtonProps {
 	children: React.ReactNode
@@ -8,11 +8,6 @@ export interface ButtonProps {
 	backgroundColor?: string
 	color?: string
 }
-
-const ButtonStyled = styled.button<ButtonProps>`
-	color: ${props => props.color};
-	background-color: ${props => props.backgroundColor};
-`
 
 export const Button = ({
 	children,
