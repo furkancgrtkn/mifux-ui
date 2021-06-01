@@ -1,5 +1,11 @@
 # mifux
 
+## 2.0.1
+
+### Patch Changes
+
+- 6832cc1: Fixs
+
 ## 2.0.0
 
 ### Major Changes
