@@ -2,6 +2,7 @@ import * as React from 'react'
 import { ButtonStyled } from './styles'
 
 export interface ButtonProps {
+	className?: string
 	children: React.ReactNode
 	primary?: boolean
 	onClick?: () => void
@@ -15,6 +16,7 @@ export const Button = ({
 	onClick,
 	backgroundColor = '#D1D5DB',
 	color = '#1F2937',
+	className,
 }: ButtonProps): JSX.Element => (
 	<ButtonStyled
 		type='button'
@@ -22,6 +24,7 @@ export const Button = ({
 		backgroundColor={backgroundColor}
 		onClick={onClick}
 		primary={primary}
+		className={className}
 	>
 		{children}
 	</ButtonStyled>
