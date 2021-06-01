@@ -5,12 +5,6 @@ module.exports = {
 	},
 	addons: [
 		{
-			name: '@storybook/addon-docs',
-			options: {
-				configureJSX: true,
-			},
-		},
-		{
 			name: '@storybook/addon-postcss',
 			options: {
 				postcssLoaderOptions: {
@@ -18,10 +12,7 @@ module.exports = {
 				},
 			},
 		},
-		'@storybook/addon-backgrounds',
-		'@storybook/addon-controls',
 		'@storybook/addon-essentials',
-		'@storybook/addon-actions',
 		'@storybook/theming',
 		'themeprovider-storybook/register',
 	],
