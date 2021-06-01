@@ -1,5 +1,11 @@
 # mifux-ui
 
+## 0.0.5
+
+### Patch Changes
+
+- 65feea8: Fix
+
 ## 0.0.4
 
 ### Patch Changes
