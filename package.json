@@ -1,6 +1,6 @@
 {
   "name": "mifux-ui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Mifux Library",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
