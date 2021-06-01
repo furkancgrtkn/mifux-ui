@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
-import { Theme } from '../../theme'
+import { Theme } from '../../theme/theme'
 import { ButtonProps } from './Button'
-// eslint-disable-next-line import/prefer-default-export
 
 // eslint-disable-next-line import/prefer-default-export
 export const ButtonStyled = styled.button(
