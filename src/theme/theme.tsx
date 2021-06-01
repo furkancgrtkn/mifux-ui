@@ -22,13 +22,19 @@ export const GlobalStyles = createGlobalStyle`
   }
 `
 
-export const theme: Theme = {
+export const defaultTheme: Theme = {
 	colors: {
 		red: '#ff241b',
 	},
 }
 
-export const MifuxUIProvider = ({ children }: { children: ReactNode }) => (
+export const MifuxUIProvider = ({
+	children,
+	theme = defaultTheme,
+}: {
+	children: ReactNode
+	theme?: Theme
+}) => (
 	<ThemeProvider theme={theme}>
 		<GlobalStyles />
 		{children}

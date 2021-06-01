@@ -1,4 +1,4 @@
-import { theme } from '../src/theme/theme'
+import { defaultTheme } from '../src/theme/theme'
 import { GlobalStyles } from '../src/theme/theme'
 import { addDecorator } from '@storybook/react'
 import { withThemesProvider, DEFAULT_SETTINGS } from 'themeprovider-storybook'
@@ -9,7 +9,7 @@ export const parameters = {
 	viewMode: 'docs',
 }
 
-const themes = [theme]
+const themes = [defaultTheme]
 addDecorator(withThemesProvider(themes, DEFAULT_SETTINGS, ThemeProvider))
 
 addDecorator(Story => (
