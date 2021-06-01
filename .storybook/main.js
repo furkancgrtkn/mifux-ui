@@ -4,6 +4,20 @@ module.exports = {
 		reactDocgen: 'react-docgen',
 	},
 	addons: [
+		{
+			name: '@storybook/addon-docs',
+			options: {
+				configureJSX: true,
+			},
+		},
+		{
+			name: '@storybook/addon-postcss',
+			options: {
+				postcssLoaderOptions: {
+					implementation: require('postcss'),
+				},
+			},
+		},
 		'@storybook/addon-backgrounds',
 		'@storybook/addon-controls',
 		'@storybook/addon-essentials',
