@@ -37,5 +37,5 @@ CustomFontColor.args = {
 
 export const OnClick = Template.bind({});
 OnClick.args = {
-  onClick: () => console.log('s'),
+  onClick: () => console.log('ss'),
 };
