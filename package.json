@@ -73,12 +73,13 @@
     "pre-commit": "lint-staged",
     "release": "yarn build && changeset publish",
     "lint": "eslint --fix \"./**/*.{ts,tsx,js,jsx}\"",
-    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx}\" --config ./.prettierrc.json"
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx}\" --config ./.prettierrc.json",
+    "clean:hooks": "rimraf -rf .git/hooks/"
   },
-  "husky":{
-    "hooks":{
-      "pre-commit":"yarn lint && yarn test && yarn build && yarn clean",
-      "pre-push":"yarn pre-commit"
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn test && yarn build && yarn clean",
+      "pre-push": "yarn pre-commit"
     }
   },
   "lint-staged": {
