@@ -43,6 +43,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
+    "rimraf": "^3.0.2",
     "rollup": "^2.50.4",
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -65,7 +66,8 @@
     "build-storybook": "build-storybook",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "rollup -c",
+    "clean": "rimraf lib",
+    "build": "yarn clean && rollup -c",
     "release": "yarn build && changeset publish",
     "lint": "eslint --fix \"./**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx}\" --config ./.prettierrc.json"

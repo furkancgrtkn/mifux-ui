@@ -1,2 +1,2 @@
-export { Button } from './components/Button/Button'
-export { MifuxUIProvider } from './theme/theme'
+export { Button } from './components/Button';
+export { MifuxUIProvider } from './theme';

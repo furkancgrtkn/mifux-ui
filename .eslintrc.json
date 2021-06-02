@@ -32,7 +32,7 @@
 		"no-unused-vars": "off",
 		"react/jsx-indent": [0],
 		"react/react-in-jsx-scope": 0,
-		"react/jsx-indent-props": [2, "tab"],
+		"react/jsx-indent-props": [0, "tab"],
 		"react/jsx-props-no-spreading": "off",
 		"react/jsx-filename-extension": [
 			1,

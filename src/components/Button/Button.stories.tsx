@@ -1,41 +1,41 @@
-import * as React from 'react'
-import { Story, Meta } from '@storybook/react/types-6-0'
-import { Button, ButtonProps } from './Button'
+import * as React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
+import { Button, ButtonProps } from '.';
 
 export default {
-	title: 'Button',
-	component: Button,
-	description: `A button.`,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-		color: { control: 'color' },
-		primary: { control: 'boolean' },
-	},
-} as Meta
+  title: 'Button',
+  component: Button,
+  description: `A button.`,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+    color: { control: 'color' },
+    primary: { control: 'boolean' },
+  },
+} as Meta;
 
 // 👇 We create a “template” of how args map to rendering
-const Template: Story<ButtonProps> = args => <Button {...args}>Click</Button>
+const Template: Story<ButtonProps> = (args) => <Button {...args}>Click</Button>;
 
 // 👇 Each story then reuses that template
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
-	primary: true,
-}
+  primary: true,
+};
 
-export const CustomBackground = Template.bind({})
+export const CustomBackground = Template.bind({});
 CustomBackground.args = {
-	backgroundColor: '#A78BFA',
-}
+  backgroundColor: '#A78BFA',
+};
 
-export const CustomFontColor = Template.bind({})
+export const CustomFontColor = Template.bind({});
 CustomFontColor.args = {
-	color: '#1E40AF',
-}
+  color: '#1E40AF',
+};
 
-export const OnClick = Template.bind({})
+export const OnClick = Template.bind({});
 OnClick.args = {
-	onClick: () => console.log('s'),
-}
+  onClick: () => console.log('s'),
+};
