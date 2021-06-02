@@ -14,7 +14,7 @@ export default {
 } as Meta
 
 // 👇 We create a “template” of how args map to rendering
-const Template: Story<ButtonProps> = (args) => <Button {...args}>Click</Button>
+const Template: Story<ButtonProps> = (args) => <Button {...args}>BUTTON</Button>
 
 // 👇 Each story then reuses that template
 export const Default = Template.bind({})

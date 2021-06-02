@@ -20,6 +20,5 @@ export const ButtonStyled = styled.button(
     font-weight: 500;
     letter-spacing: 0.025em;
     cursor: pointer;
-    text-transform: uppercase;
   `
 )
