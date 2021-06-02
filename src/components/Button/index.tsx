@@ -15,7 +15,7 @@ export const Button = ({
   primary = false,
   onClick,
   backgroundColor = '#D1D5DB',
-  color = '#1F2937',
+  color = '#1F2957',
   className,
 }: ButtonProps): JSX.Element => (
   <ButtonStyled
