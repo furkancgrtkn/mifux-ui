@@ -20,7 +20,9 @@ export const GlobalStyles = createGlobalStyle`
 
 export const defaultTheme: Theme = {
   colors: {
-    red: '#ff241b',
+    primaryBtnBorder: '#64FFDA',
+    primaryBtnBg: '#3F9B85',
+    primaryBtnColor: '#ffffff',
   },
 }
 

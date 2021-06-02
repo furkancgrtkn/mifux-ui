@@ -8,10 +8,18 @@ export const ButtonStyled = styled.button(
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${colors.red};
-    font-family: 'Sigmar One', cursive;
-    padding: 10px;
-    font-size: 40px;
-    font-weight: 600;
+    min-height: 40px;
+    white-space: no-wrap;
+    padding: 8px 32px;
+    color: ${colors.primaryBtnColor};
+    background-color: ${colors.primaryBtnBg};
+    border: 1px solid ${colors.primaryBtnBorder};
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    cursor: pointer;
+    text-transform: uppercase;
   `
 )

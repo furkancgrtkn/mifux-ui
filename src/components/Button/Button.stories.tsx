@@ -19,23 +19,3 @@ const Template: Story<ButtonProps> = (args) => <Button {...args}>Click</Button>
 // 👇 Each story then reuses that template
 export const Default = Template.bind({})
 Default.args = {}
-
-export const Primary = Template.bind({})
-Primary.args = {
-  primary: true,
-}
-
-export const CustomBackground = Template.bind({})
-CustomBackground.args = {
-  backgroundColor: '#A78BFA',
-}
-
-export const CustomFontColor = Template.bind({})
-CustomFontColor.args = {
-  color: '#1E40AF',
-}
-
-export const OnClick = Template.bind({})
-OnClick.args = {
-  onClick: () => console.log('ss'),
-}

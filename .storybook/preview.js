@@ -7,6 +7,15 @@ import { ThemeProvider } from 'styled-components'
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   viewMode: 'docs',
+  backgrounds: {
+    default: 'dark',
+    values: [
+      {
+        name: 'dark',
+        value: '#0D1117',
+      },
+    ],
+  },
 }
 
 const themes = [defaultTheme]
