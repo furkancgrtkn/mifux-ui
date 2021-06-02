@@ -74,7 +74,7 @@
     "release": "yarn build && changeset publish",
     "lint": "eslint --fix \"./**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx}\" --config ./.prettierrc.json",
-    "clean:hooks": "rimraf -rf .git/hooks/"
+    "clean:hooks": "rimraf -rf .git/hooks/ && rimraf node_modules"
   },
   "husky": {
     "hooks": {
