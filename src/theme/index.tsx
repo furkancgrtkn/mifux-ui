@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactNode, useContext } from 'react';
-import { ThemeProvider, ThemeContext, createGlobalStyle } from 'styled-components';
+import React, { ReactNode, useContext } from 'react'
+import { ThemeProvider, ThemeContext, createGlobalStyle } from 'styled-components'
 
 export interface Theme {
-  colors?: any;
+  colors?: any
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -16,25 +16,25 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-`;
+`
 
 export const defaultTheme: Theme = {
   colors: {
     red: '#ff241b',
   },
-};
+}
 
 export const MifuxUIProvider = ({
   children,
   theme = defaultTheme,
 }: {
-  children: ReactNode;
-  theme?: Theme;
+  children: ReactNode
+  theme?: Theme
 }) => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
     {children}
   </ThemeProvider>
-);
+)
 
-export const useTheme = () => useContext(ThemeContext) || {};
+export const useTheme = () => useContext(ThemeContext) || {}

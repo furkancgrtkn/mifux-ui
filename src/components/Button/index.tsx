@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { ButtonStyled } from './styled';
+import * as React from 'react'
+import { ButtonStyled } from './styled'
 
 export interface ButtonProps {
-  className?: string;
-  children: React.ReactNode;
-  primary?: boolean;
-  onClick?: () => void;
-  backgroundColor?: string;
-  color?: string;
+  className?: string
+  children: React.ReactNode
+  primary?: boolean
+  onClick?: () => void
+  backgroundColor?: string
+  color?: string
 }
 
 export const Button = ({
@@ -28,4 +28,4 @@ export const Button = ({
   >
     {children}
   </ButtonStyled>
-);
+)

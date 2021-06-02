@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { Theme } from '../../theme';
-import { ButtonProps } from '.';
+import styled, { css } from 'styled-components'
+import { Theme } from '../../theme'
+import { ButtonProps } from '.'
 
 // eslint-disable-next-line import/prefer-default-export
 export const ButtonStyled = styled.button(
@@ -14,4 +14,4 @@ export const ButtonStyled = styled.button(
     font-size: 40px;
     font-weight: 600;
   `
-);
+)

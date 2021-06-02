@@ -16,4 +16,4 @@ module.exports = {
     '@storybook/theming',
     'themeprovider-storybook/register',
   ],
-};
+}
