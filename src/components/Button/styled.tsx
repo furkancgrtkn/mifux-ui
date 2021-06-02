@@ -9,7 +9,7 @@ export const ButtonStyled = styled.button(
     justify-content: center;
     align-items: center;
     color: ${colors.red};
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Sigmar One', cursive;
     padding: 10px;
     font-size: 40px;
     font-weight: 600;
