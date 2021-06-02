@@ -1,5 +1,11 @@
 # mifux-ui
 
+## 0.0.6
+
+### Patch Changes
+
+- 46a0e0c: try somethings
+
 ## 0.0.5
 
 ### Patch Changes
