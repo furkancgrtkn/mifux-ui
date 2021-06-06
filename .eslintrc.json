@@ -2,6 +2,8 @@
 	"env": {
 		"browser": true,
 		"es2021": true,
+		"commonjs": true,
+		"node":true,
 		"jest": true
 	},
 	"extends": [
@@ -36,7 +38,7 @@
 		"react/jsx-props-no-spreading": "off",
 		"react/jsx-filename-extension": [
 			1,
-			{ "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+			{ "extensions": [".js", ".jsx", ".ts", ".tsx", "d.ts"] }
 		],
 		"no-use-before-define": [0],
 		"react/display-name": 0,
@@ -76,7 +78,7 @@
 	"settings": {
 		"import/resolver": {
 			"node": {
-				"extensions": [".js", ".jsx", ".ts", ".tsx"],
+				"extensions": [".js", ".jsx", ".ts", ".tsx", "d.ts"],
 				"moduleDirectory": ["node_modules", "src/"]
 			}
 		}

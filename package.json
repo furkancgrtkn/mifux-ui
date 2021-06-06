@@ -71,8 +71,8 @@
     "build": "yarn clean && rollup -c",
     "pre-commit": "lint-staged",
     "release": "yarn build && changeset publish",
-    "lint": "eslint --fix \"./**/*.{ts,tsx,js,jsx}\"",
-    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx}\" --config ./.prettierrc.json",
+    "lint": "eslint --fix \"./**/*.{ts,tsx,js,jsx,d.ts}\"",
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,d.ts}\" --config ./.prettierrc.json",
     "clean:hooks": "rimraf -rf .git/hooks/ && rimraf node_modules",
     "prepare": "husky install"
   }

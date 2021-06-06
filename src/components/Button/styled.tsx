@@ -1,14 +1,6 @@
 import styled from 'styled-components'
 import { Theme } from '../../theme'
-
-export interface ButtonProps {
-  className?: string
-  children?: React.ReactNode
-  primary?: boolean
-  onClick?: () => void
-  bg?: string
-  color?: string
-}
+import { ButtonProps } from './index.d'
 
 export const ButtonStyled = styled.button<ButtonProps & { theme: Theme }>`
   display: flex;
