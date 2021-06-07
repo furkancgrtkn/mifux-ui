@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react/types-6-0'
-import { Button } from './index'
+import { Story, Meta } from '@storybook/react'
+import { Button } from '.'
 import { ButtonProps } from './styled'
 
 export default {

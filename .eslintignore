@@ -1,5 +1,4 @@
 **/*.js
-**/*.stories.tsx
 node_modules
 .changeset
 .github

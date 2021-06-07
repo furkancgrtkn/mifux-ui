@@ -1,5 +1,5 @@
 import { render, fireEvent, screen } from '@testing-library/react'
-import { Button } from './index'
+import { Button } from '.'
 import { MifuxUIProvider } from '../../theme'
 import '@testing-library/jest-dom'
 import 'jest-styled-components'
