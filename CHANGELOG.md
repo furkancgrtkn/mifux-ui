@@ -1,5 +1,11 @@
 # mifux-ui
 
+## 0.0.7
+
+### Patch Changes
+
+- 4eca58a: Fix some build problems.
+
 ## 0.0.6
 
 ### Patch Changes
