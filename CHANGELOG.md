@@ -1,5 +1,11 @@
 # mifux-ui
 
+## 0.0.8
+
+### Patch Changes
+
+- 1d4791c: Fixs.
+
 ## 0.0.7
 
 ### Patch Changes
