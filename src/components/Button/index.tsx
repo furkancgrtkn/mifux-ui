@@ -1,5 +1,4 @@
-import { ButtonProps } from './Button.types'
-import { ButtonStyled } from './styled'
+import { ButtonStyled, ButtonProps } from './styled'
 
 export const Button = ({
   children,

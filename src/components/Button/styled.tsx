@@ -1,6 +1,15 @@
+import React from 'react'
 import styled from 'styled-components'
 import { Theme } from '../../theme'
-import { ButtonProps } from './Button.types'
+
+export interface ButtonProps {
+  className?: string
+  children?: React.ReactNode
+  primary?: boolean
+  onClick?: () => void
+  bg?: string
+  color?: string
+}
 
 export const ButtonStyled = styled.button<ButtonProps & { theme: Theme }>`
   display: flex;
