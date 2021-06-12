@@ -28,7 +28,8 @@
 				"js": "never",
 				"jsx": "never",
 				"ts": "never",
-				"tsx": "never"
+				"tsx": "never",
+				"d.ts": "never"
 			}
 		],
 		"no-unused-vars": "off",

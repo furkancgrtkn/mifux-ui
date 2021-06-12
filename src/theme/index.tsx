@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactNode, useContext } from 'react'
+import React from 'react'
 import { ThemeProvider, ThemeContext, createGlobalStyle } from 'styled-components'
 
 export interface Theme {
@@ -30,7 +29,7 @@ export const MifuxUIProvider = ({
   children,
   theme = defaultTheme,
 }: {
-  children: ReactNode
+  children: React.ReactNode
   theme?: Theme
 }) => (
   <ThemeProvider theme={theme}>
@@ -39,4 +38,4 @@ export const MifuxUIProvider = ({
   </ThemeProvider>
 )
 
-export const useTheme = () => useContext(ThemeContext) || {}
+export const useTheme = () => React.useContext(ThemeContext) || {}

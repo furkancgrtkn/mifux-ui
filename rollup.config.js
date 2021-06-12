@@ -27,7 +27,7 @@ export default {
     resolve(),
     commonjs(),
     typescript({
-      exclude: ['**/*.stories.tsx', '**/*.test.tsx'],
+      useTsconfigDeclarationDir: true,
     }),
   ],
 }

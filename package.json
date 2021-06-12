@@ -35,29 +35,32 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^6.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.3",
     "jest-styled-components": "^7.0.4",
     "postcss": "^8",
     "prettier": "^2.3.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-is": "^17.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.50.4",
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.30.0",
-    "styled-components": "^5.3.0",
     "themeprovider-storybook": "^1.7.2",
     "ts-jest": "^27.0.1",
     "typescript": "^4.3.2",
-    "husky": "^6.0.0"
+    "typescript-styled-plugin": "^0.18.0"
   },
   "peerDependencies": {
     "react": ">=17.0.1",
     "react-dom": ">=17.0.1",
     "styled-components": ">=5.3.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "styled-components": "^5.3.0"
   },
   "files": [
     "lib"
@@ -73,7 +76,6 @@
     "release": "yarn build && changeset publish",
     "lint": "eslint --fix \"./**/*.{ts,tsx,js,jsx,d.ts}\"",
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,d.ts}\" --config ./.prettierrc.json",
-    "clean:hooks": "rimraf -rf .git/hooks/ && rimraf node_modules",
     "prepare": "husky install"
   }
 }
