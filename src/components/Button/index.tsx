@@ -1,4 +1,3 @@
-import React from 'react'
 import { ButtonProps } from './Button.types'
 import { ButtonStyled } from './styled'
 
