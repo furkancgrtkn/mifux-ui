@@ -2,16 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import { Theme } from '../../theme'
 
-export interface ButtonProps {
-  className?: string
-  children?: React.ReactNode
+export interface ButtonStyleProps {
   primary?: boolean
-  onClick?: () => void
   bg?: string
   color?: string
 }
+export interface ButtonProps extends ButtonStyleProps {
+  className?: string
+  children: React.ReactNode
+  onClick?: () => void
+}
 
-export const ButtonStyled = styled.button<ButtonProps & { theme: Theme }>`
+export const ButtonStyled = styled.button<ButtonStyleProps & { theme: Theme }>`
   display: flex;
   justify-content: center;
   align-items: center;

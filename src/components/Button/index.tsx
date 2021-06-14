@@ -3,7 +3,7 @@ import { ButtonStyled, ButtonProps } from './styled'
 export const Button = ({
   children,
   primary = false,
-  onClick,
+  onClick = () => null,
   bg = '#D1D5DB',
   color = '#1F2957',
   className,
