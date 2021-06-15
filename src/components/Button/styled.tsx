@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import { Theme } from '../../theme'
 
 export interface ButtonStyleProps {
-  primary?: boolean
+  variant?: 'primary' | 'secondary' | 'inverted' | 'danger'
   bg?: string
   color?: string
+  borderColor?: string
 }
 export interface ButtonProps extends ButtonStyleProps {
   className?: string
