@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider, ThemeContext, createGlobalStyle } from 'styled-components'
 
 export interface Theme {
-  colors?: any
+  buttons?: any
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -18,10 +18,8 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 export const defaultTheme: Theme = {
-  colors: {
-    primaryBtnBorder: '#64FFDA',
-    primaryBtnBg: '#3F9B85',
-    primaryBtnColor: '#ffffff',
+  buttons: {
+    colors: { primaryBtnBorder: '#64FFDA', primaryBtnBg: '#3F9B85', primaryBtnColor: '#ffffff' },
   },
 }
 

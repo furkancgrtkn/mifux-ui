@@ -20,9 +20,9 @@ export const ButtonStyled = styled.button<ButtonStyleProps & { theme: Theme }>`
   min-height: 40px;
   white-space: no-wrap;
   padding: 8px 32px;
-  color: ${(props) => props.theme.colors.primaryBtnColor};
-  background-color: ${(props) => props.theme.colors.primaryBtnBg};
-  border: 1px solid ${(props) => props.theme.colors.primaryBtnBorder};
+  color: ${(props) => props.theme.buttons.colors.primaryBtnColor};
+  background-color: ${(props) => props.theme.buttons.colors.primaryBtnBg};
+  border: 1px solid ${(props) => props.theme.buttons.colors.primaryBtnBorder};
   border-radius: 5px;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
