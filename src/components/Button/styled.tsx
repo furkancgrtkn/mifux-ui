@@ -1,43 +1,89 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Theme } from '../../theme'
 
 export interface ButtonStyleProps {
-  variant: 'primary' | 'secondary' | 'inverted' | 'danger'
+  variant: 'primary' | 'secondary' | 'inverted' | 'danger' | string
   size?: 'large' | 'small'
-  bg?: string
-  color?: string
   borderColor?: string
+  disabled?: boolean
 }
 export interface ButtonProps extends ButtonStyleProps {
   className?: string
   children: React.ReactNode
   onClick?: () => void
-  icon?: React.ReactNode
+  icon?: { item: React.ReactNode; position: 'left' | 'right' }
 }
 
-export const ButtonStyled = styled.button<ButtonStyleProps & { theme: Theme; dataIcon: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: ${(props) => `${props.theme.buttons.heights[`${props.size}`]}px`};
-  white-space: no-wrap;
-  padding: ${(props) =>
-    props.theme.buttons.paddings[`${props.size}${props.dataIcon ? 'Icon' : ''}`]};
-  color: ${(props) => props.theme.buttons.colors[`${props.variant}Color`]};
-  background-color: ${(props) => props.theme.buttons.colors[`${props.variant}Bg`]};
-  border: 1px solid ${(props) => props.theme.buttons.colors[`${props.variant}Border`]};
-  border-radius: 5px;
-  font-family: ${(props) => props.theme.global.fontFamily};
-  font-size: ${(props) => `${props.theme.buttons.fontSizes[`${props.size}`]}px`};
-  font-weight: ${(props) => props.theme.buttons.fontWeights[`${props.size}`]};
-  letter-spacing: 0.025em;
-  cursor: pointer;
-`
+export const ButtonStyled = styled.button(
+  ({
+    theme: {
+      buttons: { paddings, fontSizes, fontWeights, heights, colors },
+      global,
+    },
+    variant,
+    size,
+    dataIcon,
+    dataIconPos,
+    disabled,
+  }: ButtonStyleProps & {
+    theme: Theme
+    dataIcon: boolean
+    dataIconPos: undefined | 'left' | 'right'
+  }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: ${dataIconPos === 'left' ? 'row' : 'row-reverse'};
+    white-space: no-wrap;
+    background-color: ${colors[`${variant}Bg`]};
+    border: 1px solid ${colors[`${variant}Border`]};
+    color: ${colors[`${variant}Color`]};
+    min-height: ${`${heights[`${size}`]}px`};
+    padding: ${paddings[`${size}${dataIcon ? 'Icon' : ''}`]};
+    border-radius: 5px;
+    font-family: ${global.fontFamily};
+    font-size: ${`${fontSizes[`${size}`]}px`};
+    line-height: ${`${fontSizes[`${size}`]}px`};
+    font-weight: ${fontWeights[`${size}`]};
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    position: relative;
 
-export const IconWrapper = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 6px;
-`
+    &:hover {
+      background-color: ${colors[`${variant}BgHover`]};
+      border: 1px solid ${colors[`${variant}BorderHover`]};
+      color: ${colors[`${variant}ColorHover`]};
+      & svg {
+        color: ${colors[`${variant}ColorHover`]} !important;
+      }
+      transition: 0.1s;
+      transition-property: background-color, border, color;
+    }
+
+    &:active {
+      background-color: ${colors[`${variant}BgActive`]};
+      border: 1px solid ${colors[`${variant}BorderActive`]};
+      color: ${colors[`${variant}ColorActive`]};
+      & svg {
+        color: ${colors[`${variant}ColorActive`]} !important;
+      }
+      transition: 0.1s;
+      transition-property: background-color, border, color;
+    }
+
+    ${disabled &&
+    css`
+      opacity: 0.5;
+    `}
+  `
+)
+
+export const IconWrapper = styled.span(
+  ({ dataIconPos }: { dataIconPos: undefined | 'left' | 'right' }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ${dataIconPos === 'left' ? ' margin-right: 6px;' : 'margin-left: 6px;'}
+  `
+)
