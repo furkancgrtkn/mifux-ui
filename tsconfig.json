@@ -20,8 +20,6 @@
     "types": [
       "react",
     ],
-
-    /* Plugins */
     "plugins": [
       {
         "name": "typescript-styled-plugin"
