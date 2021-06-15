@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { FaAdjust } from 'react-icons/fa'
 import { Button } from '.'
 import { ButtonProps } from './styled'
 
@@ -34,6 +35,13 @@ export const PrimarySmall = Template.bind({})
 PrimarySmall.args = {
   variant: 'primary',
   size: 'small',
+}
+
+export const PrimaryIcon = Template.bind({})
+PrimaryIcon.args = {
+  variant: 'primary',
+  size: 'large',
+  icon: <FaAdjust size='16' color='white' />,
 }
 
 export const Secondary = Template.bind({})

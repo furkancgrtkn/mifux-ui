@@ -52,7 +52,9 @@ export const defaultTheme: Theme = {
     },
     paddings: {
       large: '8px 32px',
+      largeIcon: '8px 24px',
       small: '8px 24px',
+      smallIcon: '8px 16px',
     },
   },
 }

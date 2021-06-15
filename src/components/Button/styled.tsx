@@ -13,15 +13,17 @@ export interface ButtonProps extends ButtonStyleProps {
   className?: string
   children: React.ReactNode
   onClick?: () => void
+  icon?: React.ReactNode
 }
 
-export const ButtonStyled = styled.button<ButtonStyleProps & { theme: Theme }>`
+export const ButtonStyled = styled.button<ButtonStyleProps & { theme: Theme; dataIcon: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: ${(props) => `${props.theme.buttons.heights[`${props.size}`]}px`};
   white-space: no-wrap;
-  padding: ${(props) => props.theme.buttons.paddings[`${props.size}`]};
+  padding: ${(props) =>
+    props.theme.buttons.paddings[`${props.size}${props.dataIcon ? 'Icon' : ''}`]};
   color: ${(props) => props.theme.buttons.colors[`${props.variant}Color`]};
   background-color: ${(props) => props.theme.buttons.colors[`${props.variant}Bg`]};
   border: 1px solid ${(props) => props.theme.buttons.colors[`${props.variant}Border`]};
@@ -31,4 +33,11 @@ export const ButtonStyled = styled.button<ButtonStyleProps & { theme: Theme }>`
   font-weight: ${(props) => props.theme.buttons.fontWeights[`${props.size}`]};
   letter-spacing: 0.025em;
   cursor: pointer;
+`
+
+export const IconWrapper = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
 `

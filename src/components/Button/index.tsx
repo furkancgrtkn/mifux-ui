@@ -1,4 +1,4 @@
-import { ButtonStyled, ButtonProps } from './styled'
+import { ButtonStyled, ButtonProps, IconWrapper } from './styled'
 
 export const Button = ({
   children,
@@ -6,6 +6,7 @@ export const Button = ({
   onClick = () => null,
   bg = '#D1D5DB',
   color = '#1F2957',
+  icon,
   size = 'large',
   className,
 }: ButtonProps): JSX.Element => (
@@ -17,7 +18,9 @@ export const Button = ({
     onClick={onClick}
     variant={variant}
     className={className || ''}
+    dataIcon={!!icon}
   >
+    {icon ? <IconWrapper>{icon}</IconWrapper> : null}
     {children || null}
   </ButtonStyled>
 )
