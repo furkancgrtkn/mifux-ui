@@ -8,7 +8,9 @@ describe('Button', () => {
   test('renders a default button with text', async () => {
     render(
       <MifuxUIProvider>
-        <Button className='test-btn'>Click me</Button>
+        <Button variant='primary' className='test-btn'>
+          Click me
+        </Button>
       </MifuxUIProvider>
     )
 
@@ -22,7 +24,9 @@ describe('Button', () => {
     const mockOnClick = jest.fn()
     render(
       <MifuxUIProvider>
-        <Button onClick={mockOnClick}>Click me</Button>
+        <Button variant='primary' onClick={mockOnClick}>
+          Click me
+        </Button>
       </MifuxUIProvider>
     )
     fireEvent.click(screen.getByText('Click me'))

@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { Theme } from '../../theme'
 
 export interface ButtonStyleProps {
-  variant?: 'primary' | 'secondary' | 'inverted' | 'danger'
+  variant: 'primary' | 'secondary' | 'inverted' | 'danger'
+  size?: 'large' | 'small'
   bg?: string
   color?: string
   borderColor?: string
@@ -18,16 +19,16 @@ export const ButtonStyled = styled.button<ButtonStyleProps & { theme: Theme }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 40px;
+  min-height: ${(props) => `${props.theme.buttons.heights[`${props.size}`]}px`};
   white-space: no-wrap;
-  padding: 8px 32px;
-  color: ${(props) => props.theme.buttons.colors.primaryBtnColor};
-  background-color: ${(props) => props.theme.buttons.colors.primaryBtnBg};
-  border: 1px solid ${(props) => props.theme.buttons.colors.primaryBtnBorder};
+  padding: ${(props) => props.theme.buttons.paddings[`${props.size}`]};
+  color: ${(props) => props.theme.buttons.colors[`${props.variant}Color`]};
+  background-color: ${(props) => props.theme.buttons.colors[`${props.variant}Bg`]};
+  border: 1px solid ${(props) => props.theme.buttons.colors[`${props.variant}Border`]};
   border-radius: 5px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-family: ${(props) => props.theme.global.fontFamily};
+  font-size: ${(props) => `${props.theme.buttons.fontSizes[`${props.size}`]}px`};
+  font-weight: ${(props) => props.theme.buttons.fontWeights[`${props.size}`]};
   letter-spacing: 0.025em;
   cursor: pointer;
 `
