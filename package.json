@@ -72,7 +72,6 @@
     "test:watch": "jest --watch",
     "clean": "rimraf lib",
     "build": "yarn clean && rollup -c",
-    "pre-commit": "lint-staged",
     "release": "yarn build && changeset publish",
     "lint": "eslint --fix \"./**/*.{ts,tsx,js,jsx,d.ts}\"",
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,d.ts}\" --config ./.prettierrc.json",
