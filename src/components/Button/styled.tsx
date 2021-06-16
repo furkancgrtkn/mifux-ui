@@ -7,12 +7,18 @@ export interface ButtonStyleProps {
   size?: 'large' | 'small'
   borderColor?: string
   disabled?: boolean
+  block?: boolean
+  width?: string
+  borderRadius?: string
+  letterSpacing?: string
+  disabledOpacity?: string
 }
 export interface ButtonProps extends ButtonStyleProps {
   className?: string
   children: React.ReactNode
-  onClick?: () => void
   icon?: { item: React.ReactNode; position: 'left' | 'right' }
+  onClick?: () => void
+  props?: any
 }
 
 export const ButtonStyled = styled.button(
@@ -26,6 +32,11 @@ export const ButtonStyled = styled.button(
     dataIcon,
     dataIconPos,
     disabled,
+    block,
+    width,
+    borderRadius,
+    letterSpacing,
+    disabledOpacity,
   }: ButtonStyleProps & {
     theme: Theme
     dataIcon: boolean
@@ -34,22 +45,24 @@ export const ButtonStyled = styled.button(
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: ${dataIconPos === 'left' ? 'row' : 'row-reverse'};
     white-space: no-wrap;
+    cursor: pointer;
+    position: relative;
+
+    ${width ? `width: ${width};` : null}
+    ${block ? 'width: 100%;' : null}
+    flex-direction: ${dataIconPos === 'left' ? 'row' : 'row-reverse'};
     background-color: ${colors[`${variant}Bg`]};
     border: 1px solid ${colors[`${variant}Border`]};
     color: ${colors[`${variant}Color`]};
     min-height: ${`${heights[`${size}`]}px`};
     padding: ${paddings[`${size}${dataIcon ? 'Icon' : ''}`]};
-    border-radius: 5px;
+    border-radius: ${borderRadius || '5px'};
     font-family: ${global.fontFamily};
     font-size: ${`${fontSizes[`${size}`]}px`};
     line-height: ${`${fontSizes[`${size}`]}px`};
     font-weight: ${fontWeights[`${size}`]};
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    position: relative;
-
+    letter-spacing: ${letterSpacing || '0.05em'};
     &:hover {
       background-color: ${colors[`${variant}BgHover`]};
       border: 1px solid ${colors[`${variant}BorderHover`]};
@@ -74,7 +87,7 @@ export const ButtonStyled = styled.button(
 
     ${disabled &&
     css`
-      opacity: 0.5;
+      opacity: ${disabledOpacity || '0.5'};
     `}
   `
 )

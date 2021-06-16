@@ -4,23 +4,35 @@ import { useTheme } from '../../theme'
 export const Button = ({
   children,
   variant = 'primary',
-  onClick = () => null,
   icon,
   size = 'large',
   className,
   disabled,
+  block,
+  width,
+  borderRadius,
+  letterSpacing,
+  disabledOpacity,
+  onClick = () => null,
+  props,
 }: ButtonProps): JSX.Element => {
   const theme = useTheme()
   return (
     <ButtonStyled
       type='button'
       size={size}
-      onClick={onClick}
+      block={!!block}
       disabled={!!disabled}
       variant={variant}
       className={className || ''}
       dataIcon={!!icon}
+      width={width}
       dataIconPos={icon?.position}
+      disabledOpacity={disabledOpacity}
+      onClick={onClick}
+      borderRadius={borderRadius}
+      letterSpacing={letterSpacing}
+      {...props}
     >
       {icon ? (
         <IconWrapper dataIconPos={icon?.position}>

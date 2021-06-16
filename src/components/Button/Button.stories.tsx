@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
-import { FaAdjust } from 'react-icons/fa'
+import { GoCloudDownload, FaAdjust } from 'react-icons/all'
 import { Button } from '.'
 import { ButtonProps } from './styled'
 
@@ -18,6 +18,11 @@ export default {
       control: { type: 'select' },
     },
     disabled: { control: 'boolean' },
+    block: { control: 'boolean' },
+    width: { control: 'text' },
+    borderRadius: { control: 'text' },
+    letterSpacing: { control: 'text' },
+    disabledOpacity: { control: 'text' },
   },
 } as Meta
 
@@ -84,7 +89,7 @@ export const InvertedIcon = Template.bind({})
 InvertedIcon.args = {
   variant: 'inverted',
   size: 'large',
-  icon: { item: <FaAdjust size='16' color='white' />, position: 'left' },
+  icon: { item: <GoCloudDownload size='16' color='white' />, position: 'left' },
   disabled: false,
 }
 
