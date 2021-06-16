@@ -34,7 +34,7 @@ WarningWithSubText.args = {
 
 export const DefaultIcon = Template.bind({})
 DefaultIcon.args = {
-  icon: { name: 'search', position: 'right', area: true },
+  icon: { item: 'search', position: 'right', area: true },
 }
 
 export const TagLabel = Template.bind({})
@@ -45,5 +45,5 @@ TagLabel.args = {
 export const Borderless = Template.bind({})
 Borderless.args = {
   borderless: true,
-  icon: { name: 'search', position: 'right', area: true },
+  icon: { item: 'search', position: 'right', area: true },
 }

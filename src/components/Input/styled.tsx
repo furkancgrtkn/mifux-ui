@@ -6,10 +6,11 @@ export interface InputProps {
   className?: string
   width?: 'block' | number
   warning?: boolean
-  icon?: { name: 'string'; position: 'left' | 'right'; area?: boolean }
+  icon?: { item: React.ReactNode; position: 'left' | 'right'; area?: boolean }
   subText?: string
   tag?: { name: string; description?: string }
   borderless?: boolean
+  placeholder?: string
 }
 
 const handleWidth = (width: InputProps['width']) => {
@@ -51,16 +52,22 @@ const handleCaretColor = (warning: InputProps['warning'], colors: Theme['input']
   return colors.focus
 }
 
+export const Wrapper = styled.div(
+  ({ width }: InputProps) => css`
+    width: ${handleWidth(width)};
+  `
+)
+
 export const InputStyled = styled.div(
   ({
     theme: {
-      input: { colors, fontSizes, paddings },
+      global: { fontFamily },
+      input: { colors, fontSizes, fontWeights, paddings },
     },
     warning,
     focus,
     icon,
     borderless,
-    width,
   }: InputProps & {
     theme: Theme
     focus: boolean
@@ -75,6 +82,8 @@ export const InputStyled = styled.div(
       font-size: ${fontSizes.input};
       letter-spacing: 0.025em;
       caret-color: ${handleCaretColor(warning, colors)};
+      font-family: ${fontFamily};
+      font-weight: ${fontWeights.regular};
     }
     & > div {
       padding: ${paddings.input};
@@ -99,8 +108,7 @@ export const InputStyled = styled.div(
     flex-direction: ${icon?.position === 'left' ? 'row-reverse' : 'row'};
     color: ${handleFontColor(warning, colors)};
     border-radius: 5px;
-    width: ${handleWidth(width)};
-
+    width: 100%;
     ${borderless
       ? css`
           background-color: ${colors.borderlessBackground};
@@ -116,7 +124,8 @@ export const InputStyled = styled.div(
 export const Caption = styled.p(
   ({
     theme: {
-      input: { colors, fontSizes, paddings },
+      global: { fontFamily },
+      input: { colors, fontSizes, fontWeights, paddings },
     },
     warning,
   }: InputProps & {
@@ -126,13 +135,16 @@ export const Caption = styled.p(
     font-size: ${fontSizes.caption}px;
     letter-spacing: 0.025em;
     padding: ${paddings.caption};
+    font-family: ${fontFamily};
+    font-weight: ${fontWeights.regular};
   `
 )
 
 export const Tag = styled.div(
   ({
     theme: {
-      input: { colors, fontSizes, paddings },
+      global: { fontFamily },
+      input: { colors, fontSizes, fontWeights, paddings },
     },
     warning,
   }: InputProps & {
@@ -142,5 +154,7 @@ export const Tag = styled.div(
     font-size: ${fontSizes.tag}px;
     letter-spacing: 0.025em;
     padding: ${paddings.tag};
+    font-family: ${fontFamily};
+    font-weight: ${fontWeights.regular};
   `
 )

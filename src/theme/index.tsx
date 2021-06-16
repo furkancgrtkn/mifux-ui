@@ -3,6 +3,7 @@ import { ThemeProvider, ThemeContext, createGlobalStyle } from 'styled-component
 
 export interface Theme {
   colors?: any
+  global?: any
   input?: any
 }
 
@@ -24,6 +25,10 @@ export const defaultTheme: Theme = {
     primaryBtnBg: '#3F9B85',
     primaryBtnColor: '#ffffff',
   },
+  global: {
+    fontFamily: "'Raleway', sans-serif",
+    bodyColor: '#0D1117',
+  },
   input: {
     colors: {
       default: '#EEEEEE',
@@ -37,6 +42,11 @@ export const defaultTheme: Theme = {
       input: 14,
       caption: 14,
       tag: 12,
+    },
+    fontWeights: {
+      regular: 400,
+      semiBold: 600,
+      bold: 800,
     },
     paddings: {
       caption: '8px 14px',
