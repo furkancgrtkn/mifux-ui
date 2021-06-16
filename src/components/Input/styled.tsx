@@ -2,12 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Theme } from '../../theme'
 
-export interface InputStyleProps {
-  primary?: boolean
-  // bg?: string
-  // color?: string
-}
-export interface InputProps extends InputStyleProps {
+export interface InputProps {
   className?: string
   width?: 'block' | number
   warning?: boolean
@@ -27,90 +22,125 @@ const handleWidth = (width: InputProps['width']) => {
   return null
 }
 
-const handleBorderColor = (warning: InputProps['warning'], focus: boolean) => {
+const handleBorderColor = (
+  warning: InputProps['warning'],
+  focus: boolean,
+  colors: Theme['input']['colors']
+) => {
   if (warning) {
-    return '#F83B68'
+    return colors.warning
   }
   if (focus) {
-    return '#64FFDA'
+    return colors.focus
   }
 
-  return '#EEEEEE'
+  return colors.default
 }
 
-const handleFontColor = (warning: InputProps['warning']) => {
+const handleFontColor = (warning: InputProps['warning'], colors: Theme['input']['colors']) => {
   if (warning) {
-    return '#F83B68'
+    return colors.warning
   }
-  return '#EEEEEE'
+  return colors.default
 }
 
-const handleCaretColor = (warning: InputProps['warning'], focus: boolean) => {
+const handleCaretColor = (warning: InputProps['warning'], colors: Theme['input']['colors']) => {
   if (warning) {
-    return '#F83B68'
+    return colors.warning
   }
-  return '#64FFDA'
+  return colors.focus
 }
 
-export const InputStyled = styled.div<InputProps & { theme: Theme; focus: boolean }>`
-  input {
-    border: none;
-    background: none;
-    width: 100%;
-    color: ${(props) => handleFontColor(props.warning)};
-    outline: none;
-    padding: 12px 14px;
-    font-size: 14px;
-    letter-spacing: 0.025em;
-    caret-color: ${(props) => handleCaretColor(props.warning, props.focus)};
-  }
-  & > div {
-    padding: 12px 14px;
-    color: ${(props) => handleBorderColor(props.warning, props.focus)};
-    ${(props) =>
-      props.icon?.area &&
+export const InputStyled = styled.div(
+  ({
+    theme: {
+      input: { colors, fontSizes, paddings },
+    },
+    warning,
+    focus,
+    icon,
+    borderless,
+    width,
+  }: InputProps & {
+    theme: Theme
+    focus: boolean
+  }) => css`
+    input {
+      border: none;
+      background: none;
+      width: 100%;
+      color: ${handleFontColor(warning, colors)};
+      outline: none;
+      padding: ${paddings.input};
+      font-size: ${fontSizes.input};
+      letter-spacing: 0.025em;
+      caret-color: ${handleCaretColor(warning, colors)};
+    }
+    & > div {
+      padding: ${paddings.input};
+      color: ${handleBorderColor(warning, focus, colors)};
+      ${icon?.area &&
       css`
-        background-color: rgba(139, 139, 139, 0.1);
-        ${props.icon.position === 'left'
+        background-color: ${colors.iconArea};
+        ${icon.position === 'left'
           ? css`
               border-right: 1px solid;
             `
           : css`
               border-left: 1px solid;
             `}
-        border-color: ${handleBorderColor(props.warning, props.focus)};
+        border-color: ${handleBorderColor(warning, focus, colors)};
         display: flex;
         align-items: center;
         justify-content: center;
       `};
-  }
-  display: flex;
-  flex-direction: ${(props) => (props.icon?.position === 'left' ? 'row-reverse' : 'row')};
-  color: ${(props) => handleFontColor(props.warning)};
-  border-radius: 5px;
-  width: ${(props) => handleWidth(props.width)};
+    }
+    display: flex;
+    flex-direction: ${icon?.position === 'left' ? 'row-reverse' : 'row'};
+    color: ${handleFontColor(warning, colors)};
+    border-radius: 5px;
+    width: ${handleWidth(width)};
 
-  ${(props) =>
-    props.borderless
+    ${borderless
       ? css`
-          background-color: #393b3f;
+          background-color: ${colors.borderlessBackground};
         `
       : css`
-          background-color: #24262a;
+          background-color: ${colors.defaultBackground};
           border: 1px solid;
-          border-color: ${handleBorderColor(props.warning, props.focus)};
+          border-color: ${handleBorderColor(warning, focus, colors)};
         `}
-`
+  `
+)
 
-export const Caption = styled.p<InputProps & { theme: Theme }>`
-  color: ${(props) => handleFontColor(props.warning)};
-  font-size: 12px;
-  letter-spacing: 0.025em;
-  padding: 8px 14px;
-`
-export const Tag = styled.div<InputProps & { theme: Theme }>`
-  color: ${(props) => handleFontColor(props.warning)};
-  font-size: 14px;
-  letter-spacing: 0.025em;
-  padding: 12px 0;
-`
+export const Caption = styled.p(
+  ({
+    theme: {
+      input: { colors, fontSizes, paddings },
+    },
+    warning,
+  }: InputProps & {
+    theme: Theme
+  }) => css`
+    color: ${handleFontColor(warning, colors)};
+    font-size: ${fontSizes.caption}px;
+    letter-spacing: 0.025em;
+    padding: ${paddings.caption};
+  `
+)
+
+export const Tag = styled.div(
+  ({
+    theme: {
+      input: { colors, fontSizes, paddings },
+    },
+    warning,
+  }: InputProps & {
+    theme: Theme
+  }) => css`
+    color: ${handleFontColor(warning, colors)};
+    font-size: ${fontSizes.tag}px;
+    letter-spacing: 0.025em;
+    padding: ${paddings.tag};
+  `
+)

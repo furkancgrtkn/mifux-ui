@@ -25,7 +25,7 @@ export const Input = ({
         <input type='text' />
         <div>**</div>
       </InputStyled>
-      {warning && <Caption warning={warning}>{subText}</Caption>}
+      {warning && <Caption {...(warning && { warning })}>{subText}</Caption>}
     </>
   )
 }

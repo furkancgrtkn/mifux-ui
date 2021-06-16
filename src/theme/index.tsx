@@ -3,6 +3,7 @@ import { ThemeProvider, ThemeContext, createGlobalStyle } from 'styled-component
 
 export interface Theme {
   colors?: any
+  input?: any
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -22,6 +23,27 @@ export const defaultTheme: Theme = {
     primaryBtnBorder: '#64FFDA',
     primaryBtnBg: '#3F9B85',
     primaryBtnColor: '#ffffff',
+  },
+  input: {
+    colors: {
+      default: '#EEEEEE',
+      warning: '#F83B68',
+      focus: '#64FFDA',
+      iconArea: 'rgba(139, 139, 139, 0.1)',
+      defaultbackground: '#24262a',
+      borderlessBackground: '#393b3f',
+    },
+    fontSizes: {
+      input: 14,
+      caption: 14,
+      tag: 12,
+    },
+    paddings: {
+      caption: '8px 14px',
+      tag: '12px 0',
+      input: '12px 14px',
+      smallIcon: '8px 16px',
+    },
   },
 }
 
