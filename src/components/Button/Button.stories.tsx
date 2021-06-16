@@ -19,10 +19,12 @@ export default {
     },
     disabled: { control: 'boolean' },
     block: { control: 'boolean' },
+    borderless: { control: 'boolean' },
     width: { control: 'text' },
     borderRadius: { control: 'text' },
     letterSpacing: { control: 'text' },
     disabledOpacity: { control: 'text' },
+    iconSpacing: { control: 'number' },
   },
 } as Meta
 
@@ -47,7 +49,7 @@ export const PrimaryIcon = Template.bind({})
 PrimaryIcon.args = {
   variant: 'primary',
   size: 'large',
-  icon: { item: <FaAdjust size='16' color='white' />, position: 'left' },
+  icon: { item: <FaAdjust size={20} color='white' />, position: 'left' },
   disabled: false,
 }
 

@@ -1,4 +1,4 @@
-import { ButtonStyled, ButtonProps, IconWrapper } from './styled'
+import { ButtonStyled, ButtonProps, IconWrapper, ButtonText } from './styled'
 import { useTheme } from '../../theme'
 
 export const Button = ({
@@ -13,6 +13,8 @@ export const Button = ({
   borderRadius,
   letterSpacing,
   disabledOpacity,
+  borderless,
+  iconSpacing,
   onClick = () => null,
   props,
 }: ButtonProps): JSX.Element => {
@@ -31,18 +33,23 @@ export const Button = ({
       disabledOpacity={disabledOpacity}
       onClick={onClick}
       borderRadius={borderRadius}
-      letterSpacing={letterSpacing}
+      borderless={borderless}
       {...props}
     >
       {icon ? (
-        <IconWrapper dataIconPos={icon?.position}>
+        <IconWrapper iconSpacing={iconSpacing} dataIconPos={icon?.position}>
           {{
             ...(icon.item as object),
-            props: { color: `${theme.buttons.colors[`${variant}Color`]}` },
+            props: {
+              ...(icon.item?.props as object),
+              color: `${theme.buttons.colors[`${variant}Color`]}`,
+            },
           }}
         </IconWrapper>
       ) : null}
-      {children || null}
+      <ButtonText className='mifuxButtonText' size={size} letterSpacing={letterSpacing}>
+        {children}
+      </ButtonText>
     </ButtonStyled>
   )
 }
