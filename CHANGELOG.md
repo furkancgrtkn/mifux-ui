@@ -1,5 +1,11 @@
 # mifux-ui
 
+## 0.0.9
+
+### Patch Changes
+
+- 1397577: Button component added.
+
 ## 0.0.8
 
 ### Patch Changes
