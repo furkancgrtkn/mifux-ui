@@ -2,25 +2,30 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Theme } from '../../theme'
 
-export interface InputProps {
+export interface InputStyleProps {
+  width?: string
+  block?: boolean
+  borderless?: boolean
+}
+
+export interface InputProps extends InputStyleProps {
   className?: string
-  width?: 'block' | number
   warning?: boolean
-  icon?: { item: React.ReactNode; position: 'left' | 'right'; area?: boolean }
+  icon?: { item: any; position: 'left' | 'right'; area?: boolean }
   subText?: string
   tag?: { name: string; description?: string }
-  borderless?: boolean
   placeholder?: string
   onChange?: (e: any) => void
   value?: string
+  props?: any
 }
 
-const handleWidth = (width: InputProps['width']) => {
-  if (width === 'block') {
+const handleWidth = (width: InputProps['width'], block: InputProps['block']) => {
+  if (block) {
     return '100%'
   }
-  if (typeof width === 'number') {
-    return `${width}px`
+  if (typeof width === 'string') {
+    return width
   }
   return null
 }
@@ -55,8 +60,8 @@ const handleCaretColor = (warning: InputProps['warning'], colors: Theme['input']
 }
 
 export const Wrapper = styled.div(
-  ({ width }: InputProps) => css`
-    width: ${handleWidth(width)};
+  ({ width, block }: InputProps) => css`
+    width: ${handleWidth(width, block)};
   `
 )
 

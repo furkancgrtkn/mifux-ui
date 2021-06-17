@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { FaAdjust } from 'react-icons/all'
 import { Input } from '.'
 import { InputProps } from './styled'
 
@@ -42,7 +43,12 @@ WarningWithSubText.args = {
 
 export const DefaultIcon = Template.bind({})
 DefaultIcon.args = {
-  icon: { item: 'search', position: 'right', area: true },
+  icon: { item: <FaAdjust size={16} color='white' />, position: 'right', area: false },
+}
+
+export const DefaultIconWithArea = Template.bind({})
+DefaultIcon.args = {
+  icon: { item: <FaAdjust size={16} color='white' />, position: 'right', area: true },
 }
 
 export const TagLabel = Template.bind({})
@@ -53,11 +59,11 @@ TagLabel.args = {
 export const Borderless = Template.bind({})
 Borderless.args = {
   borderless: true,
-  icon: { item: 'search', position: 'right', area: true },
+  icon: { item: <FaAdjust size={16} color='white' />, position: 'right', area: true },
   tag: { name: 'Tab Label' },
 }
 
 export const BlockWidth = Template.bind({})
 BlockWidth.args = {
-  width: 'block',
+  block: true,
 }
