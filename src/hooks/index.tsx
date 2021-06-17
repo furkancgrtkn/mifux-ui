@@ -1,4 +1,4 @@
-import useOnClickOutside from './lib/useOnClickOutside'
+import useOnClickOutside from './library/useOnClickOutside'
 
 export default {
   useOnClickOutside,
