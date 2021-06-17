@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react'
-import { Wrapper, InputStyled, Caption, Tag, InputProps } from './styled'
+import { useState, useRef, MutableRefObject } from 'react'
+import { Wrapper, InputStyled, IconWrapper, Caption, Tag, InputProps } from './styled'
 import hooks from '../../hooks'
 
 export const Input = ({
@@ -11,25 +11,42 @@ export const Input = ({
   tag,
   borderless = false,
   placeholder,
+  onChange = () => null,
+  value,
 }: InputProps): JSX.Element => {
-  const inputRef = useRef(null)
+  const wrapperRef = useRef(null)
+  const inputRef = useRef() as MutableRefObject<HTMLInputElement>
   const [focus, setFocus] = useState(false)
 
-  hooks.useOnClickOutside(inputRef, () => setFocus(false))
+  hooks.useOnClickOutside(wrapperRef, () => setFocus(false))
   return (
-    <Wrapper width={width}>
+    <Wrapper {...(className && { className })} {...(width && { width })}>
       <Tag>{tag?.name}</Tag>
       <InputStyled
-        onClick={() => setFocus(true)}
-        ref={inputRef}
-        {...(className && { className })}
+        onClick={() => {
+          setFocus(true)
+          if (inputRef) {
+            inputRef.current.focus()
+          }
+        }}
+        ref={wrapperRef}
         {...(borderless && { borderless })}
-        warning={warning}
-        focus={focus}
+        {...(warning && { warning })}
         {...(icon && { icon })}
+        focus={!!focus}
       >
-        <input {...(placeholder && { placeholder })} type='text' />
-        <div>**</div>
+        <input
+          onChange={(e: any) => onChange(e)}
+          ref={inputRef}
+          {...(placeholder && { placeholder })}
+          {...(value && { value })}
+          type='text'
+        />
+        {icon && (
+          <IconWrapper {...(warning && { warning })} focus={!!focus}>
+            {icon?.item}
+          </IconWrapper>
+        )}
       </InputStyled>
       {warning && <Caption {...(warning && { warning })}>{subText}</Caption>}
     </Wrapper>

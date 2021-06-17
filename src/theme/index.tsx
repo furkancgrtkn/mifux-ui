@@ -31,7 +31,8 @@ export const defaultTheme: Theme = {
   },
   input: {
     colors: {
-      default: '#EEEEEE',
+      default: '#FFFFFF',
+      placeholder: '#EEEEEE',
       warning: '#F83B68',
       focus: '#64FFDA',
       iconArea: 'rgba(139, 139, 139, 0.1)',
@@ -40,8 +41,8 @@ export const defaultTheme: Theme = {
     },
     fontSizes: {
       input: 14,
-      caption: 14,
-      tag: 12,
+      caption: 12,
+      tag: 14,
     },
     fontWeights: {
       regular: 400,

@@ -11,6 +11,8 @@ export interface InputProps {
   tag?: { name: string; description?: string }
   borderless?: boolean
   placeholder?: string
+  onChange?: (e: any) => void
+  value?: string
 }
 
 const handleWidth = (width: InputProps['width']) => {
@@ -25,8 +27,8 @@ const handleWidth = (width: InputProps['width']) => {
 
 const handleBorderColor = (
   warning: InputProps['warning'],
-  focus: boolean,
-  colors: Theme['input']['colors']
+  colors: Theme['input']['colors'],
+  focus?: boolean
 ) => {
   if (warning) {
     return colors.warning
@@ -65,12 +67,12 @@ export const InputStyled = styled.div(
       input: { colors, fontSizes, fontWeights, paddings },
     },
     warning,
-    focus,
     icon,
     borderless,
+    focus,
   }: InputProps & {
     theme: Theme
-    focus: boolean
+    focus?: boolean
   }) => css`
     input {
       border: none;
@@ -79,15 +81,18 @@ export const InputStyled = styled.div(
       color: ${handleFontColor(warning, colors)};
       outline: none;
       padding: ${paddings.input};
-      font-size: ${fontSizes.input};
+      font-size: ${fontSizes.input}px;
       letter-spacing: 0.025em;
       caret-color: ${handleCaretColor(warning, colors)};
       font-family: ${fontFamily};
       font-weight: ${fontWeights.regular};
+      :placeholder {
+        color: ${colors.placeholder};
+      }
     }
     & > div {
       padding: ${paddings.input};
-      color: ${handleBorderColor(warning, focus, colors)};
+      color: ${handleBorderColor(warning, colors, focus)};
       ${icon?.area &&
       css`
         background-color: ${colors.iconArea};
@@ -98,7 +103,7 @@ export const InputStyled = styled.div(
           : css`
               border-left: 1px solid;
             `}
-        border-color: ${handleBorderColor(warning, focus, colors)};
+        border-color: ${handleBorderColor(warning, colors, focus)};
         display: flex;
         align-items: center;
         justify-content: center;
@@ -116,8 +121,23 @@ export const InputStyled = styled.div(
       : css`
           background-color: ${colors.defaultBackground};
           border: 1px solid;
-          border-color: ${handleBorderColor(warning, focus, colors)};
+          border-color: ${handleBorderColor(warning, colors, focus)};
         `}
+  `
+)
+
+export const IconWrapper = styled.div(
+  ({
+    theme: {
+      input: { colors },
+    },
+    warning,
+    focus,
+  }: InputProps & {
+    theme: Theme
+    focus?: boolean
+  }) => css`
+    color: ${handleBorderColor(warning, colors, focus)};
   `
 )
 

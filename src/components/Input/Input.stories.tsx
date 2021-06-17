@@ -7,18 +7,26 @@ export default {
   title: 'Input',
   component: Input,
   description: `Input`,
+  argTypes: {
+    className: { control: 'text' },
+    warning: { control: 'boolean' },
+    subText: { control: 'text' },
+    borderless: { control: 'boolean' },
+    placeholder: { control: 'text' },
+    value: { control: 'text' },
+  },
 } as Meta
 
 // 👇 We create a “template” of how args map to rendering
-const Template: Story<InputProps> = (args) => <Input {...args} />
+const Template: Story<InputProps> = (args) => {
+  const [value, setValue] = React.useState(args.value)
+  return <Input value={value} onChange={(e) => setValue(e.target.value)} {...args} />
+}
 
 // 👇 Each story then reuses that template
 export const Default = Template.bind({})
-Default.args = {}
-
-export const BlockWidth = Template.bind({})
-BlockWidth.args = {
-  width: 'block',
+Default.args = {
+  placeholder: 'Placeholder',
 }
 
 export const Warning = Template.bind({})
@@ -46,4 +54,10 @@ export const Borderless = Template.bind({})
 Borderless.args = {
   borderless: true,
   icon: { item: 'search', position: 'right', area: true },
+  tag: { name: 'Tab Label' },
+}
+
+export const BlockWidth = Template.bind({})
+BlockWidth.args = {
+  width: 'block',
 }
