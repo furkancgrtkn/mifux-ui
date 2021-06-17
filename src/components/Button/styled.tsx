@@ -58,7 +58,7 @@ export const ButtonStyled = styled.button(
     border: 1px solid ${borderless ? colors[`${variant}Bg`] : colors[`${variant}Border`]};
     color: ${colors[`${variant}Color`]};
     min-height: ${`${heights[`${size}`]}px`};
-    padding: ${paddings[`${size}${dataIcon ? 'Icon' : ''}`]};
+    padding: 0 ${paddings[`${size}${dataIcon ? 'Icon' : ''}`]};
     border-radius: ${borderRadius || '5px'};
 
     &:hover {
@@ -106,15 +106,12 @@ export const ButtonText = styled.span(
     size: ButtonStyleProps['size']
   }) => css`
     direction: rtl;
-    display: inline-block;
     white-space: no-wrap;
-    vertical-align: middle;
 
     letter-spacing: ${letterSpacing || '0.05em'};
-    text-indent: ${`-${letterSpacing}` || '-0.05em'};
+    text-indent: ${`-${letterSpacing || '0.05em'}`};
     font-family: ${global.fontFamily};
     font-size: ${`${fontSizes[`${size}`]}px`};
-    line-height: ${`${fontSizes[`${size}`]}px`};
     font-weight: ${fontWeights[`${size}`]};
     color: inherit;
   `

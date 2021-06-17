@@ -86,10 +86,10 @@ export const defaultTheme: Theme = {
       small: 32,
     },
     paddings: {
-      large: '8px 32px',
-      largeIcon: '8px 24px',
-      small: '8px 24px',
-      smallIcon: '8px 16px',
+      large: '32px',
+      largeIcon: '24px',
+      small: '24px',
+      smallIcon: '16px',
     },
   },
 }
