@@ -49,7 +49,7 @@ export const PrimaryIcon = Template.bind({})
 PrimaryIcon.args = {
   variant: 'primary',
   size: 'large',
-  icon: { item: <FaAdjust size={20} color='white' />, position: 'left' },
+  icon: { item: <FaAdjust size={16} color='white' />, position: 'left' },
   disabled: false,
 }
 
@@ -70,7 +70,7 @@ export const SecondaryIcon = Template.bind({})
 SecondaryIcon.args = {
   variant: 'secondary',
   size: 'large',
-  icon: { item: <FaAdjust size='16' color='white' />, position: 'right' },
+  icon: { item: <FaAdjust size={16} color='white' />, position: 'right' },
   disabled: false,
 }
 
