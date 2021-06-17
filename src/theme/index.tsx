@@ -115,7 +115,7 @@ export const defaultTheme: Theme = {
     },
     paddings: {
       caption: '8px 14px',
-      tag: '12px 0',
+      tag: '0 0 12px 0',
       input: '12px 14px',
       smallIcon: '8px 16px',
     },

@@ -95,25 +95,6 @@ export const InputStyled = styled.div(
         color: ${colors.placeholder};
       }
     }
-    & > div {
-      padding: ${paddings.input};
-      color: ${handleBorderColor(warning, colors, focus)};
-      ${icon?.area &&
-      css`
-        background-color: ${colors.iconArea};
-        ${icon.position === 'left'
-          ? css`
-              border-right: 1px solid;
-            `
-          : css`
-              border-left: 1px solid;
-            `}
-        border-color: ${handleBorderColor(warning, colors, focus)};
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      `};
-    }
     display: flex;
     flex-direction: ${icon?.position === 'left' ? 'row-reverse' : 'row'};
     color: ${handleFontColor(warning, colors)};
@@ -134,15 +115,33 @@ export const InputStyled = styled.div(
 export const IconWrapper = styled.div(
   ({
     theme: {
-      input: { colors },
+      input: { colors, paddings },
     },
     warning,
     focus,
+    icon,
   }: InputProps & {
     theme: Theme
     focus?: boolean
   }) => css`
     color: ${handleBorderColor(warning, colors, focus)};
+    padding: ${paddings.input};
+    color: ${handleBorderColor(warning, colors, focus)};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ${icon?.area &&
+    css`
+      background-color: ${colors.iconArea};
+      ${icon.position === 'left'
+        ? css`
+            border-right: 1px solid;
+          `
+        : css`
+            border-left: 1px solid;
+          `}
+      border-color: ${handleBorderColor(warning, colors, focus)};
+    `};
   `
 )
 

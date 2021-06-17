@@ -39,7 +39,7 @@ export const Input = ({
   }
   return (
     <Wrapper {...(className && { className })} {...(width && { width })} {...(block && { block })}>
-      <Tag>{tag?.name}</Tag>
+      {tag && <Tag>{tag.name}</Tag>}
       <InputStyled
         onClick={() => {
           setFocus(true)
@@ -62,7 +62,12 @@ export const Input = ({
           {...props}
         />
         {icon && (
-          <IconWrapper {...(warning && { warning })} {...(focus && { focus })}>
+          <IconWrapper
+            className='icon-wrapper'
+            {...(warning && { warning })}
+            {...(focus && { focus })}
+            {...(icon && { icon })}
+          >
             {{
               ...(icon.item as object),
               props: {
