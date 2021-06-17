@@ -6,13 +6,17 @@ import { ThemeProvider } from 'styled-components'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
-  viewMode: 'docs',
+  viewMode: 'canvas',
   backgrounds: {
     default: 'dark',
     values: [
       {
         name: 'dark',
         value: '#0D1117',
+      },
+      {
+        name: 'light',
+        value: '#fff',
       },
     ],
   },
