@@ -4,6 +4,7 @@ import { ThemeProvider, ThemeContext, createGlobalStyle } from 'styled-component
 export interface Theme {
   global?: any
   buttons?: any
+  input?: any
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -90,6 +91,33 @@ export const defaultTheme: Theme = {
       largeIcon: '24px',
       small: '24px',
       smallIcon: '16px',
+    },
+  },
+  input: {
+    colors: {
+      default: '#FFFFFF',
+      placeholder: '#EEEEEE',
+      warning: '#F83B68',
+      focus: '#64FFDA',
+      iconArea: 'rgba(139, 139, 139, 0.1)',
+      defaultbackground: '#24262a',
+      borderlessBackground: '#393b3f',
+    },
+    fontSizes: {
+      input: 14,
+      caption: 12,
+      tag: 14,
+    },
+    fontWeights: {
+      regular: 400,
+      semiBold: 600,
+      bold: 800,
+    },
+    paddings: {
+      caption: '8px 14px',
+      tag: '0 0 12px 0',
+      input: '12px 14px',
+      smallIcon: '8px 16px',
     },
   },
 }
