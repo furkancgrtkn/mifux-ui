@@ -14,4 +14,11 @@ const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />
 
 // 👇 Each story then reuses that template
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  onChange: (e: any) => console.log('checkbox value:', e.target.checked),
+  size: 20,
+  className: 'test',
+  checked: false,
+  borderWidth: 1,
+  id: 'test',
+}

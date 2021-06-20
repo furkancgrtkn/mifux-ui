@@ -1,17 +1,37 @@
 import { useState } from 'react'
-import { CheckboxStyled, CheckboxLabel, CheckboxProps } from './styled'
+import { Wrapper, CheckboxStyled, CheckboxLabel, CheckboxProps } from './styled'
 
-export const Checkbox = ({ className }: CheckboxProps): JSX.Element => {
-  const [checked, setChecked] = useState(false)
+export const Checkbox = ({
+  checked,
+  className,
+  props,
+  size = 16,
+  borderWidth = 1,
+  id,
+  onChange = () => null,
+}: CheckboxProps): JSX.Element => {
+  const [checkStat, setCheckStat] = useState(checked || false)
   return (
-    <>
+    <Wrapper {...(size && { size })} {...(className && { className })}>
       <CheckboxStyled
-        id='checkbox'
+        id={id}
         type='checkbox'
-        checked={checked}
-        onChange={() => setChecked(!checked)}
+        {...(checkStat && { checked: checkStat })}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
+          setCheckStat(!checkStat)
+          if (onChange) {
+            onChange(e)
+          }
+        }}
+        {...(size && { size })}
+        {...(borderWidth && { borderWidth })}
+        {...props}
       />
-      <CheckboxLabel htmlFor='checkbox' />
-    </>
+      <CheckboxLabel
+        {...(size && { size })}
+        {...(borderWidth && { borderWidth })}
+        {...(id && { htmlFor: id })}
+      />
+    </Wrapper>
   )
 }

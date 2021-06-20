@@ -3,6 +3,12 @@ import { Theme } from '../../theme'
 
 export interface CheckboxProps {
   className?: string
+  checked?: boolean
+  props?: any
+  onChange?: (event: any) => void // React.ChangeEvent<HTMLInputElement> olmalı
+  size?: number
+  borderWidth?: number
+  id?: string // zorunlu olmalı
 }
 
 const shrinkBounce = keyframes({
@@ -37,48 +43,72 @@ const checkboxCheck = keyframes({
   },
 })
 
+export const Wrapper = styled.div(
+  ({ size }: CheckboxProps) => css`
+    display: flex;
+    width: ${size}px;
+    height: ${size}px;
+  `
+)
+
 export const CheckboxLabel = styled.label(
-  () => css`
+  ({
+    theme: {
+      checkbox: { colors },
+    },
+    size,
+    borderWidth,
+  }: CheckboxProps & {
+    theme: Theme
+  }) => css`
     position: relative;
     display: flex;
-    margin: 0.6em 0;
-    align-items: center;
-    color: #9e9e9e;
+    width: ${size}px;
+    height: ${size}px;
     transition: color 250ms cubic-bezier(0.4, 0, 0.23, 1);
     :after {
       content: '';
     }
     :before {
       content: '';
+      position: absolute;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 1em;
-      width: 1em;
-      height: 1em;
+      width: ${size}px;
+      height: ${size}px;
       background: transparent;
-      box-shadow: 0 0 0 1px #eeeeee inset;
+      box-shadow: 0 0 0 ${borderWidth}px ${colors.defaultBorder} inset;
       border-radius: 5px;
       cursor: pointer;
       transition: all 250ms cubic-bezier(0.4, 0, 0.23, 1);
+      background-color: ${colors.defaultBackground};
     }
   `
 )
 
 export const CheckboxStyled = styled.input(
-  () => css`
+  ({
+    theme: {
+      checkbox: { colors },
+    },
+    size,
+    borderWidth,
+  }: CheckboxProps & {
+    theme: Theme
+  }) => css`
     width: 0;
     height: 0;
+    display: none;
     :checked + label {
       :before {
-        box-shadow: 0 0 0 0.5em rgba(255, 255, 255, 0.05) inset;
-        border: 1px solid white;
+        background-color: ${colors.checkedBackground};
+        box-shadow: 0 0 0 ${size ? size / 2 : 8}px ${colors.checkedBackground} inset;
+        border: ${borderWidth}px solid ${colors.checkedBorder};
         animation: ${shrinkBounce} 200ms cubic-bezier(0.4, 0, 0.23, 1);
       }
       :after {
         position: absolute;
-        top: 0.55em;
-        left: 0.25em;
+        top: ${size ? size / 2 + 0.8 : 8.8}px;
+        left: ${size ? (size - 8) / 2 : 4}px;
         border-right: 1px solid transparent;
         border-bottom: 1px solid transparent;
         transform: rotate(45deg);
