@@ -10,13 +10,13 @@ export const Checkbox = ({
   id,
   onChange = () => null,
 }: CheckboxProps): JSX.Element => {
-  const [checkStat, setCheckStat] = useState(checked || false)
+  const [checkStat, setCheckStat] = useState(checked)
   return (
     <Wrapper {...(size && { size })} {...(className && { className })}>
       <CheckboxStyled
         id={id}
         type='checkbox'
-        {...(checkStat && { checked: checkStat })}
+        checked={checkStat}
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
           setCheckStat(!checkStat)
           if (onChange) {

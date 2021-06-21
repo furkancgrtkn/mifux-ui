@@ -3,12 +3,12 @@ import { Theme } from '../../theme'
 
 export interface CheckboxProps {
   className?: string
-  checked?: boolean
+  checked: boolean
   props?: any
   onChange?: (event: any) => void // React.ChangeEvent<HTMLInputElement> olmalı
   size?: number
   borderWidth?: number
-  id?: string // zorunlu olmalı
+  id: string
 }
 
 const shrinkBounce = keyframes({
@@ -44,7 +44,7 @@ const checkboxCheck = keyframes({
 })
 
 export const Wrapper = styled.div(
-  ({ size }: CheckboxProps) => css`
+  ({ size }: { size?: number }) => css`
     display: flex;
     width: ${size}px;
     height: ${size}px;
@@ -58,7 +58,9 @@ export const CheckboxLabel = styled.label(
     },
     size,
     borderWidth,
-  }: CheckboxProps & {
+  }: {
+    size?: number
+    borderWidth?: number
     theme: Theme
   }) => css`
     position: relative;
@@ -75,7 +77,6 @@ export const CheckboxLabel = styled.label(
       display: flex;
       width: ${size}px;
       height: ${size}px;
-      background: transparent;
       box-shadow: 0 0 0 ${borderWidth}px ${colors.defaultBorder} inset;
       border-radius: 5px;
       cursor: pointer;
