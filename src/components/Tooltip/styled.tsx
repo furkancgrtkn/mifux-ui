@@ -17,7 +17,7 @@ export const TooltipWrapper = styled.div(
 
 export const TooltipStyled = styled.div(
   ({
-    theme: { global },
+    theme: { global, tooltip },
     dataPosition,
   }: TooltipStyleProps & {
     theme: Theme
@@ -25,8 +25,8 @@ export const TooltipStyled = styled.div(
   }) => css`
     width: fit-content;
     position: absolute;
-    padding: 6px 12px;
-    color: #c5c5c5;
+    padding: ${tooltip.padding};
+    color: ${tooltip.color};
     z-index: 1;
     ${dataPosition &&
     css`
@@ -34,12 +34,12 @@ export const TooltipStyled = styled.div(
     `}
     left: 50%;
     transform: translateX(-50%);
-    background-color: #2f3235;
-    border: 1px solid #c5c5c5;
-    border-radius: 5px;
+    background-color: ${tooltip.background};
+    border: 1px solid ${tooltip.color};
+    border-radius: ${tooltip.borderRadius};
     font-family: ${global.fontFamily};
-    font-size: 12px;
-    font-weight: 400;
+    font-size: ${tooltip.fontSize};
+    font-weight: ${tooltip.fontWeight};
   `
 )
 

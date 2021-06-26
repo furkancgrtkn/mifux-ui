@@ -5,11 +5,10 @@ export interface Theme {
   global?: any
   buttons?: any
   input?: any
+  tooltip?: any
 }
 
 export const GlobalStyles = createGlobalStyle`
-
-
   *, *:before, *:after{
     margin: 0;
     padding: 0;
@@ -119,6 +118,14 @@ export const defaultTheme: Theme = {
       input: '12px 14px',
       smallIcon: '8px 16px',
     },
+  },
+  tooltip: {
+    color: '#c5c5c5',
+    padding: '6px 12px',
+    background: '#2f3235',
+    borderRadius: '5px',
+    fontSize: '12px',
+    fontWeight: 400,
   },
 }
 
