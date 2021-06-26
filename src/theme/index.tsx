@@ -6,6 +6,7 @@ export interface Theme {
   buttons?: any
   input?: any
   checkbox?: any
+  radio?: any
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -123,6 +124,14 @@ export const defaultTheme: Theme = {
   },
 
   checkbox: {
+    colors: {
+      defaultBackground: 'transparent',
+      checkedBackground: '#ffffff0d',
+      defaultBorder: '#EEEEEE',
+      checkedBorder: '#EEEEEE',
+    },
+  },
+  radio: {
     colors: {
       defaultBackground: 'transparent',
       checkedBackground: '#ffffff0d',
