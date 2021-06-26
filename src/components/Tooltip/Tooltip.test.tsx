@@ -8,7 +8,9 @@ describe('Button', () => {
   test('renders a default button with text', async () => {
     render(
       <MifuxUIProvider>
-        <Tooltip className='test-btn'>Tooltip</Tooltip>
+        <Tooltip label='Tooltip' position='right' className='test-btn'>
+          Tooltip
+        </Tooltip>
       </MifuxUIProvider>
     )
   })

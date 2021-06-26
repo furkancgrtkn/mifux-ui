@@ -126,6 +126,7 @@ export const defaultTheme: Theme = {
     borderRadius: '5px',
     fontSize: '12px',
     fontWeight: 400,
+    boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.25)',
   },
 }
 

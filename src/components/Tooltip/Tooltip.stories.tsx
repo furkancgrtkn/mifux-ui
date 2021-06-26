@@ -8,6 +8,23 @@ export default {
   title: 'Tooltip',
   component: Tooltip,
   description: `A tooltip.`,
+  argTypes: {
+    label: { control: 'text' },
+    position: {
+      options: ['right', 'bottom', 'top'],
+      control: { type: 'select' },
+    },
+    color: { control: 'text' },
+    background: { control: 'text' },
+    fontSize: { control: 'text' },
+    fontWeight: {
+      options: [400, 500, 600, 700],
+      control: { type: 'select' },
+    },
+    boxShadow: { control: 'text' },
+    borderRadius: { control: 'text' },
+    padding: { control: 'text' },
+  },
 } as Meta
 
 // 👇 We create a “template” of how args map to rendering
@@ -15,7 +32,7 @@ const Template: Story<TooltipProps> = (args) => (
   <div style={{ marginTop: 40, marginLeft: 40, width: 'fit-content' }}>
     <Tooltip {...args}>
       <Button onClick={() => {}} size='large' variant='primary'>
-        BUTTON
+        Hover
       </Button>
     </Tooltip>
   </div>
@@ -24,6 +41,6 @@ const Template: Story<TooltipProps> = (args) => (
 // 👇 Each story then reuses that template
 export const Default = Template.bind({})
 Default.args = {
-  variant: 'primary',
-  disabled: false,
+  label: 'Tooltip',
+  position: 'right',
 }
