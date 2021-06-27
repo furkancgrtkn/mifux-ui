@@ -11,7 +11,7 @@ export default {
   argTypes: {
     label: { control: 'text' },
     position: {
-      options: ['right', 'bottom', 'top'],
+      options: ['right', 'bottom', 'top', 'left'],
       control: { type: 'select' },
     },
     color: { control: 'text' },

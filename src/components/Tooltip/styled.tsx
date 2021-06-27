@@ -10,7 +10,7 @@ export interface TooltipStyleProps {
   boxShadow?: string
   borderRadius?: string
   padding?: string
-  position: 'right' | 'bottom' | 'top'
+  position: 'right' | 'bottom' | 'top' | 'left'
 }
 export interface TooltipProps extends TooltipStyleProps {
   className?: string
@@ -27,7 +27,9 @@ export const TooltipWrapper = styled.div(
         visibility: visible;
         z-index: 1;
         opacity: 1;
-        transform: ${position === 'right' ? 'translateY(-50%) translateX(0%)' : 'translateX(-50%)'}
+        transform: ${position === 'right' || position === 'left'
+            ? 'translateY(-50%) translateX(0%)'
+            : 'translateX(-50%)'}
           scale(1);
         transition: 0.15s ease-in;
         transition-property: transform, visibility, opacity;
@@ -71,7 +73,9 @@ export const TooltipStyled = styled.div(
     font-weight: ${fontWeight || tooltip.fontWeight};
     box-shadow: ${boxShadow || tooltip.boxShadow};
 
-    transform: ${position === 'right' ? 'translateY(-50%) translateX(0%)' : 'translateX(-50%)'}
+    transform: ${position === 'right' || position === 'left'
+        ? 'translateY(-50%) translateX(0%)'
+        : 'translateX(-50%)'}
       scale(0.5);
 
     transition: 0.15s ease-out;
@@ -94,9 +98,18 @@ export const TooltipStyled = styled.div(
           top: 50%;
           left: ${`${dataPositionX + 10}px`};
         `
-      : css`
+      : position !== 'left' &&
+        css`
           left: 50%;
         `}
+
+        
+    ${position === 'left' &&
+    dataPositionX &&
+    css`
+      top: 50%;
+      right: ${`${dataPositionX + 10}px`};
+    `}
   `
 )
 
