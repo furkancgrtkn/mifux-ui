@@ -9,7 +9,7 @@ function DefaultRadio() {
     <MifuxUIProvider>
       <Radio id='1' name='test' checked={false} props={{ 'data-testid': 'test-radio1' }} />
       <Radio id='2' name='test' checked={false} props={{ 'data-testid': 'test-radio2' }} />
-      <Radio id='3' name='test' checked={false} props={{ 'data-testid': 'test-radio4' }} />
+      <Radio id='3' name='test' checked={false} props={{ 'data-testid': 'test-radio3' }} />
     </MifuxUIProvider>
   )
 }
@@ -18,7 +18,7 @@ const setup = () => {
   render(<DefaultRadio />)
   const radio1 = screen.getByTestId('test-radio1') as HTMLInputElement
   const radio2 = screen.getByTestId('test-radio2') as HTMLInputElement
-  const radio3 = screen.getByTestId('test-radio4') as HTMLInputElement
+  const radio3 = screen.getByTestId('test-radio3') as HTMLInputElement
   return {
     radio1,
     radio2,
