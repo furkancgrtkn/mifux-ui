@@ -7,9 +7,9 @@ import 'jest-styled-components'
 function DefaultRadio() {
   return (
     <MifuxUIProvider>
-      <Radio id='1' name='test' checked={false} props={{ 'data-testid': 'test-radio1' }} />
-      <Radio id='2' name='test' checked={false} props={{ 'data-testid': 'test-radio2' }} />
-      <Radio id='3' name='test' checked={false} props={{ 'data-testid': 'test-radio3' }} />
+      <Radio id='1' name='test' defaultChecked={false} props={{ 'data-testid': 'test-radio1' }} />
+      <Radio id='2' name='test' defaultChecked={false} props={{ 'data-testid': 'test-radio2' }} />
+      <Radio id='3' name='test' defaultChecked={false} props={{ 'data-testid': 'test-radio3' }} />
     </MifuxUIProvider>
   )
 }

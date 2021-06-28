@@ -3,7 +3,7 @@ import { Theme } from '../../theme'
 
 export interface RadioProps {
   className?: string
-  checked: boolean
+  defaultChecked: boolean
   props?: any
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   size?: number
