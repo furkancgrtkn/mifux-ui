@@ -13,6 +13,7 @@ export const Tooltip = ({
   padding,
   position = 'top',
   label = 'Tooltip',
+  borderless = false,
 }: TooltipProps): JSX.Element => {
   const childRef = useRef<HTMLDivElement>(null)
   const [positionState, setPositionState] = useState<number | undefined>()
@@ -22,9 +23,14 @@ export const Tooltip = ({
     setPositionXState(childRef.current?.clientWidth)
   }, [childRef])
   return (
-    <TooltipWrapper position={position} className={className || ''}>
-      {positionState && position && label && (
+    <TooltipWrapper
+      data-testid='test-tooltip-wrapper'
+      position={position}
+      className={className || ''}
+    >
+      {position && label && (
         <TooltipStyled
+          data-testid='test-tooltip'
           color={color}
           background={background}
           fontSize={fontSize}
@@ -35,6 +41,7 @@ export const Tooltip = ({
           dataPosition={positionState}
           dataPositionX={positionXState}
           position={position}
+          borderless={borderless}
         >
           {label}
         </TooltipStyled>

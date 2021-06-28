@@ -24,6 +24,7 @@ export default {
     boxShadow: { control: 'text' },
     borderRadius: { control: 'text' },
     padding: { control: 'text' },
+    borderless: { control: 'boolean' },
   },
 } as Meta
 

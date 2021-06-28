@@ -11,6 +11,7 @@ export interface TooltipStyleProps {
   borderRadius?: string
   padding?: string
   position: 'right' | 'bottom' | 'top' | 'left'
+  borderless?: boolean
 }
 export interface TooltipProps extends TooltipStyleProps {
   className?: string
@@ -51,6 +52,7 @@ export const TooltipStyled = styled.div(
     dataPosition,
     dataPositionX,
     position,
+    borderless,
   }: TooltipStyleProps & {
     theme: Theme
     dataPosition: number | undefined
@@ -66,7 +68,7 @@ export const TooltipStyled = styled.div(
     padding: ${padding || tooltip.padding};
     color: ${color || tooltip.color};
     background-color: ${background || tooltip.background};
-    border: 1px solid ${color || tooltip.color};
+    border: 1px solid ${borderless ? background || tooltip.background : color || tooltip.color};
     border-radius: ${borderRadius || tooltip.borderRadius};
     font-family: ${global.fontFamily};
     font-size: ${fontSize || tooltip.fontSize};
@@ -80,6 +82,11 @@ export const TooltipStyled = styled.div(
 
     transition: 0.15s ease-out;
     transition-property: transform, visibility, opacity;
+
+    ${(!dataPosition || !dataPositionX) &&
+    css`
+      display: none;
+    `}
 
     ${position === 'top' &&
     dataPosition &&
