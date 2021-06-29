@@ -7,6 +7,7 @@ export interface Theme {
   input?: any
   checkbox?: any
   radio?: any
+  breadcrumb?: any
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -23,6 +24,11 @@ export const defaultTheme: Theme = {
   global: {
     fontFamily: "'Raleway', sans-serif",
     bodyColor: '#0D1117',
+    fontWeights: {
+      regular: 400,
+      semiBold: 600,
+      bold: 800,
+    },
   },
   buttons: {
     colors: {
@@ -132,6 +138,15 @@ export const defaultTheme: Theme = {
     },
   },
   radio: {
+    colors: {
+      defaultBackground: 'transparent',
+      checkedBackground: '#ffffff0d',
+      defaultBorder: '#EEEEEE',
+      checkedBorder: '#EEEEEE',
+    },
+  },
+
+  breadcrumb: {
     colors: {
       defaultBackground: 'transparent',
       checkedBackground: '#ffffff0d',
