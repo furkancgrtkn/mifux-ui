@@ -86,6 +86,14 @@ export const InputStyled = styled.div(
       color: ${handleFontColor(warning, colors)};
       outline: none;
       padding: ${paddings.input};
+      ${!icon?.area &&
+      (icon?.position === 'left'
+        ? css`
+            padding-left: 0;
+          `
+        : css`
+            padding-right: 0;
+          `)}
       font-size: ${fontSizes.input}px;
       letter-spacing: 0.025em;
       caret-color: ${handleCaretColor(warning, colors)};
