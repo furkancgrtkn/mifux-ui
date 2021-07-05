@@ -4,11 +4,13 @@ import { ThemeProvider, ThemeContext, createGlobalStyle } from 'styled-component
 export interface Theme {
   global?: any
   buttons?: any
+  input?: any
+  tooltip?: any
+  checkbox?: any
+  radio?: any
 }
 
 export const GlobalStyles = createGlobalStyle`
-
-
   *, *:before, *:after{
     margin: 0;
     padding: 0;
@@ -90,6 +92,58 @@ export const defaultTheme: Theme = {
       largeIcon: '24px',
       small: '24px',
       smallIcon: '16px',
+    },
+  },
+  input: {
+    colors: {
+      default: '#FFFFFF',
+      placeholder: '#EEEEEE',
+      warning: '#F83B68',
+      focus: '#64FFDA',
+      iconArea: 'rgba(139, 139, 139, 0.1)',
+      defaultbackground: '#24262a',
+      borderlessBackground: '#393b3f',
+    },
+    fontSizes: {
+      input: 14,
+      caption: 12,
+      tag: 14,
+    },
+    fontWeights: {
+      regular: 400,
+      semiBold: 600,
+      bold: 800,
+    },
+    paddings: {
+      caption: '8px 14px',
+      tag: '0 0 12px 0',
+      input: '12px 14px',
+      smallIcon: '8px 16px',
+    },
+  },
+  tooltip: {
+    color: '#c5c5c5',
+    padding: '6px 12px',
+    background: '#2f3235',
+    borderRadius: '5px',
+    fontSize: '12px',
+    fontWeight: 400,
+    boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.25)',
+  },
+  checkbox: {
+    colors: {
+      defaultBackground: 'transparent',
+      checkedBackground: '#ffffff0d',
+      defaultBorder: '#EEEEEE',
+      checkedBorder: '#EEEEEE',
+    },
+  },
+  radio: {
+    colors: {
+      defaultBackground: 'transparent',
+      checkedBackground: '#ffffff0d',
+      defaultBorder: '#EEEEEE',
+      checkedBorder: '#EEEEEE',
     },
   },
 }
